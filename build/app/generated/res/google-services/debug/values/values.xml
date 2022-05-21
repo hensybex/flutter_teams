@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">335376641060-ae07q42pav3v4vg4bvpc8dmd3d01jmfa.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">335376641060</string>
+    <string name="google_api_key" translatable="false">AIzaSyAXPqO-cfnskg5KaY2trXKjOZgDSyXVkXw</string>
+    <string name="google_app_id" translatable="false">1:335376641060:android:7461e8c5f4584960453cb1</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAXPqO-cfnskg5KaY2trXKjOZgDSyXVkXw</string>
+    <string name="google_storage_bucket" translatable="false">blackpearlflutter.appspot.com</string>
+    <string name="project_id" translatable="false">blackpearlflutter</string>
+</resources>
