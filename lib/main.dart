@@ -1,22 +1,22 @@
 import 'dart:html';
-import 'package:black_pearl/pages/profile/profile.dart';
+import 'package:black_pearl/pages/profile/profile_page.dart';
 import 'package:black_pearl/pages/profile/update_profile.dart';
-import 'package:black_pearl/pages/home/home_screen.dart';
-import 'package:black_pearl/pages/auth/register_screen.dart';
+import 'package:black_pearl/pages/home/home_page.dart';
+import 'package:black_pearl/pages/auth/register_page.dart';
 import 'package:black_pearl/pages/test/test.dart';
-import 'package:black_pearl/sevices/routing/route_generator.dart';
 import 'package:black_pearl/sevices/auth.dart';
 import 'package:flutter/material.dart';
-import 'package:black_pearl/pages/todo.dart';
-import 'package:black_pearl/pages/squad_builder/squad_builder.dart';
+import 'package:black_pearl/pages/todo_page.dart';
+import 'package:black_pearl/pages/squad_builder/squad_builder_page.dart';
 //import 'package:black_pearl/pages/squad_builder/squad_builder_game.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:black_pearl/firebase_options.dart';
 import 'package:provider/provider.dart';
-import 'package:black_pearl/pages/auth/login_screen.dart';
-import 'package:black_pearl/pages/player_list/player_list.dart';
-import 'package:black_pearl/pages/calendar/calendar.dart';
-import 'package:black_pearl/sevices/routing/route_generator.dart';
+import 'package:black_pearl/pages/auth/login_page.dart';
+import 'package:black_pearl/pages/player_list/player_list_page.dart';
+import 'package:black_pearl/pages/calendar/calendar_page.dart';
+
+import 'models/router.gr.dart';
 
 void initFirebase() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,10 +33,18 @@ void main() async {
   runApp(MyApp());
 }
 
+final _appRouter = AppRouter();
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
+    return MaterialApp.router(
+      routerDelegate: _appRouter.delegate(),
+      routeInformationParser: _appRouter.defaultRouteParser(),
+    );
+  }
+}
+/*     return MultiProvider(
         providers: [
           Provider<AuthService>(
             create: (_) => AuthService(),
@@ -54,15 +62,15 @@ class MyApp extends StatelessWidget {
             onGenerateRoute: RouteGenerator.generateRoute,
             routes: {
               //'./': (context) => Wrapper(),
-              './login': (context) => LoginScreen(),
-              './register': (context) => RegisterScreen(),
+              './login': (context) => LoginPage(),
+              './register': (context) => RegisterPage(),
               './todo': (context) => ToDo(),
-              './home': (context) => HomeScreen(),
-              './squad_builder': (context) => SquadBuilder(),
+              './home': (context) => HomePage(),
+              './squad_builder': (context) => SquadBuilderPage(),
               //'./squad_builder_game': (context) => SquadBuilderGame(game: ),
-              './player_list': (context) => PlayerList(),
-              './calendar': (context) => Calendar(),
-              './profile': (context) => Profile(),
+              './player_list': (context) => PlayerListPage(),
+              './calendar': (context) => CalendarPage(),
+              './profile': (context) => ProfilePage(),
               './update_profile': (context) => UpdateProfile(),
               './test': (context) => TestPage(),
               //'./player': (context) => Player(id: '',),
@@ -70,3 +78,4 @@ class MyApp extends StatelessWidget {
             }));
   }
 }
+ */

@@ -1,9 +1,9 @@
-import 'package:black_pearl/pages/profile/profile.dart';
+import 'package:black_pearl/pages/profile/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:black_pearl/models/user_model.dart';
-import 'package:black_pearl/pages/home/home_screen.dart';
+import 'package:black_pearl/pages/home/home_page.dart';
 
 bool isNumeric(String s) {
   if (s == null) {
@@ -36,7 +36,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
         leading: IconButton(
           icon: Icon(Icons.clear),
           onPressed: () => Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => Profile())),
+              context, MaterialPageRoute(builder: (context) => ProfilePage())),
         ),
       ),
       body: Form(
@@ -97,6 +97,6 @@ class _UpdateProfileState extends State<UpdateProfile> {
         .update({'playerNumber': playerNumber});
 
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => Profile()));
+        context, MaterialPageRoute(builder: (context) => ProfilePage()));
   }
 }

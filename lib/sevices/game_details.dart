@@ -1,10 +1,12 @@
 import 'package:black_pearl/pages/squad_builder/squad_builder_game.dart';
-import 'package:black_pearl/pages/todo.dart';
+import 'package:black_pearl/pages/todo_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:black_pearl/models/game_model.dart';
-import 'package:black_pearl/pages/home/home_screen.dart';
+import 'package:black_pearl/pages/home/home_page.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:black_pearl/models/router.gr.dart';
 
 class GameDetails extends StatelessWidget {
   final Game game;
@@ -30,11 +32,8 @@ class GameDetails extends StatelessWidget {
                     IconButton(
                       icon: Icon(Icons.edit),
                       onPressed: () {
-                        Navigator.pushReplacementNamed(
-                          context,
-                          './todo', //edit
-                          arguments: game,
-                        );
+                        context.navigateTo(SquadBuilderRoute(gameId: game.id!));
+                        //context.pushRoute(SquadBuilderRoute(gameId: game.id!));
                       },
                     ),
                     IconButton(
@@ -76,7 +75,6 @@ class GameDetails extends StatelessWidget {
                 body: ListView(
                   padding: const EdgeInsets.all(16.0),
                   children: <Widget>[
-                    Text("Idk what was here"),
                     ListTile(
                       leading: Icon(Icons.event),
                       title: Text(

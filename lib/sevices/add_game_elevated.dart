@@ -104,18 +104,6 @@ class _AddGameElevatedState extends State<AddGameElevated> {
                   SizedBox(
                     height: 5,
                   ),
-                  TextFormField(
-                    controller: opponentController,
-                    decoration: const InputDecoration(
-                      hintText: 'Enter opponent team name',
-                    ),
-                    validator: (String? value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Opponent name missing';
-                      }
-                      return null;
-                    },
-                  ),
                   SizedBox(
                     height: 5,
                   ),

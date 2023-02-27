@@ -1,11 +1,11 @@
-import 'package:black_pearl/pages/profile/profile.dart';
+import 'package:black_pearl/pages/profile/profile_page.dart';
 
-import '../player_list/player_list.dart';
+import '../player_list/player_list_page.dart';
 import '../posts/posts.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import '../auth/login_screen.dart';
+import '../auth/login_page.dart';
 import 'package:black_pearl/models/user_model.dart';
 import 'package:black_pearl/sevices/sidebar.dart';
 import 'package:black_pearl/sevices/add_game.dart';
@@ -74,7 +74,7 @@ class _CoachState extends State<Coach> {
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => PlayerList(),
+                    builder: (context) => PlayerListPage(),
                   ),
                 );
               },
@@ -116,7 +116,7 @@ class _CoachState extends State<Coach> {
 
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
-        builder: (context) => LoginScreen(),
+        builder: (context) => LoginPage(),
       ),
     );
   }

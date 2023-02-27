@@ -1,8 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import '../auth/login_screen.dart';
+import '../../models/router.gr.dart';
+import '../auth/login_page.dart';
 import 'package:black_pearl/models/user_model.dart';
 
 import 'package:black_pearl/sevices/sidebar.dart';
@@ -131,7 +133,7 @@ class _PlayerState extends State<Player> {
                             Row(
                               children: [
                                 TextButton(
-                                  child: const Text('Точно не буду'),
+                                  child: const Text('Will not attend'),
                                   onPressed: () {
                                     unsubscribeFromEvent(
                                       snapshot.data!.docChanges[index]
@@ -141,7 +143,7 @@ class _PlayerState extends State<Player> {
                                   },
                                 ),
                                 TextButton(
-                                  child: const Text('Возможно буду'),
+                                  child: const Text('Maybe'),
                                   onPressed: () {
                                     semiSubscribeToEvent(
                                       snapshot.data!.docChanges[index]
@@ -151,7 +153,7 @@ class _PlayerState extends State<Player> {
                                   },
                                 ),
                                 TextButton(
-                                  child: const Text('Точно буду'),
+                                  child: const Text('Will attend'),
                                   onPressed: () {
                                     subscribeToEvent(
                                       snapshot.data!.docChanges[index]
@@ -163,6 +165,14 @@ class _PlayerState extends State<Player> {
                               ],
                             ),
                             const SizedBox(width: 8),
+                            TextButton(
+                              child: const Text('Check Squad'),
+                              onPressed: () {
+                                context.pushRoute(SquadBuilderRoute(
+                                    gameId: snapshot.data!.docChanges[index]
+                                        .doc['documentId']));
+                              },
+                            ),
                           ],
                         ),
                       ),
@@ -289,7 +299,7 @@ class _PlayerState extends State<Player> {
 
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
-        builder: (context) => LoginScreen(),
+        builder: (context) => LoginPage(),
       ),
     );
   }
